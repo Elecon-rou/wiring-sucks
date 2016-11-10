@@ -1,10 +1,10 @@
 /* -*- mode: jde; c-basic-offset: 2; indent-tabs-mode: nil -*- */
 
 /*
-  WMath.cpp: Part of the Wiring project - http://wiring.org.co
-
-  Copyright (c) 2004-10 Hernando Barragan
-
+  Part of the Wiring project - http://wiring.org.co
+  Copyright (c) 2004-06 Hernando Barragan
+  Modified 13 August 2006, David A. Mellis for Arduino - http://www.arduino.cc/
+  
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Lesser General Public
   License as published by the Free Software Foundation; either
@@ -21,42 +21,38 @@
   Boston, MA  02111-1307  USA
 */
 
-#include "WProgram.h"
+extern "C" {
+  #include "stdlib.h"
+}
 
-
-void randomSeed(unsigned int seed)
+void randomSeed(unsigned long seed)
 {
   if (seed != 0) {
     srandom(seed);
   }
 }
 
-
-float random(float howbig)
+long random(long howbig)
 {
-  float value;
-  if (howbig == 0){
+  if (howbig == 0) {
     return 0;
   }
-  value = rand();
-  value = value / RAND_MAX;
-  return value * howbig;
+  return random() % howbig;
 }
 
-float random(float howsmall, float howbig)
+long random(long howsmall, long howbig)
 {
-  if(howsmall >= howbig){
+  if (howsmall >= howbig) {
     return howsmall;
   }
-  float diff = howbig - howsmall;
+  long diff = howbig - howsmall;
   return random(diff) + howsmall;
 }
 
-float map(float value, float istart, float istop, float ostart, float ostop) {
-  return ostart + (ostop - ostart) * ((value - istart) / (istop - istart));
+long map(long x, long in_min, long in_max, long out_min, long out_max)
+{
+  return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
 }
 
 unsigned int makeWord(unsigned int w) { return w; }
-unsigned int makeWord(unsigned char highByte, unsigned char lowByte) { return (highByte << 8) | lowByte; }
-
-
+unsigned int makeWord(unsigned char h, unsigned char l) { return (h << 8) | l; }

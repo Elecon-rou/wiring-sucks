@@ -1,10 +1,9 @@
-MCU= atmega128 
+MCU=atmega328p
 
-SERIAL= /dev/ttyUSB0
+SERIAL= /dev/ttyACM0
 
-CFLAGS= -Os -mmcu=$(MCU) -I. -Iinclude
+CFLAGS= -Os -mmcu=$(MCU) -I. 
 
-CC=avr-gcc $(CFLAGS) -fpermissive
-CXX=avr-g++ $(CFLAGS) -fpermissive
-LD=avr-gcc $(CFLAGS) -s -Wl,--gc-sections,-u,-Map=$(<:.o=.map),--cref
-OBJCOPY= avr-objcopy -O srec -R .eeprom 
+CC=avr-gcc $(CFLAGS)
+CXX=avr-g++ $(CFLAGS)
+OBJCOPY=avr-objcopy -j .text -j .data -O ihex

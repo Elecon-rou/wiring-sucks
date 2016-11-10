@@ -20,8 +20,6 @@
 #ifndef Arduino_h
 #define Arduino_h
 
-#include <util/delay.h>
-
 #include <stdlib.h>
 #include <stdbool.h>
 #include <string.h>

@@ -38,8 +38,8 @@ applet: $(OBJS)
 	$(CXX) $^ -o $@.o
 	$(OBJCOPY) $@.o $@.bin
 
-flash: applet
-	avrdude -p m328p -c arduino -P $(SERIAL) -U flash:w:$^.bin 
+flash: 
+	avrdude -p m328p -c arduino -P $(SERIAL) -U flash:w:applet.bin 
 
 clean:
 	rm -f applet.bin *.o

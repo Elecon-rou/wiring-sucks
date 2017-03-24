@@ -1,4 +1,4 @@
-include config.mk
+<config.mk
 
 OBJS = \
 abi.o \
@@ -22,24 +22,33 @@ wiring_analog.o \
 wiring.o \
 wiring_digital.o \
 wiring_pulse.o \
+wiring_pulse_asm.o \
 wiring_shift.o \
 WMath.o \
 WString.o \
 program.o \
 
+all:V: applet.bin
+
 %.o : %.S
-	$(CC) -x assembler-with-cpp -c -o $@ $<
+	$CC -x assembler-with-cpp -c $stem.S
 %.o : %.cpp
-	$(CXX) -c -o $@ $<
+	$CXX -c $stem.cpp
 %.o : %.c
-	$(CC) -c -o $@ $<
+	$CC -c $stem.c
 
-applet: $(OBJS)
-	$(CXX) $^ -o $@.o
-	$(OBJCOPY) $@.o $@.bin
+applet.o : $OBJS
+	$CXX $prereq -o $target
 
-flash: 
-	avrdude -p m328p -c arduino -P $(SERIAL) -U flash:w:applet.bin 
+applet.bin : applet.o
+	$OBJCOPY $prereq $target
 
-clean:
-	rm -f applet.bin *.o
+flash:V: applet.bin
+	avrdude -p m328p -c arduino -P $SERIAL -U flash:w:$target
+
+clean:V:
+	rm -f *.o
+
+nuke:V: clean
+	rm -f applet.bin
+ 

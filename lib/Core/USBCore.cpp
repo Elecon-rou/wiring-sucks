@@ -17,8 +17,8 @@
 ** SOFTWARE.  
 */
 
-#include "USBAPI.h"
-#include "PluggableUSB.h"
+#include <USBAPI.h>
+#include <PluggableUSB.h>
 #include <stdlib.h>
 
 #if defined(USBCON)

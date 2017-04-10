@@ -16,7 +16,7 @@
 ** SOFTWARE.  
 */
 
-#include "USBAPI.h"
+#include <USBAPI.h>
 #include <avr/wdt.h>
 #include <util/atomic.h>
 

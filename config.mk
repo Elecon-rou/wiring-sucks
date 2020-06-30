@@ -1,6 +1,7 @@
 SERIAL=/dev/ttyACM0
 
-LIBS=Core.a SoftwareSerial.a
+LIBS=Core.a Ethernet.a Firmata.a GSM.a LiquidCrystal.a \
+SD.a Servo.a SoftwareSerial.a SPI.a Stepper.a Wire.a
 
 CC=avr-gcc $(CFLAGS)
 CXX=avr-g++ $(CXXFLAGS)

@@ -3,6 +3,9 @@ include board.mk
 
 .PHONY: all clean flash
 
+CFLAGS+=-Iinclude/Core
+CXXFLAGS=$(CFLAGS)
+
 all: hex.bin
 
 %.o: %.S

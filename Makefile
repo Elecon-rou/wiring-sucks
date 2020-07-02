@@ -30,4 +30,15 @@ flash: hex.bin
 	$(PROG) -U flash:w:$<
 
 clean:
-	rm *.a *.o hex.bin
+	rm -f *.a *.o hex.bin
+	rm -f lib/Core/*.o \
+	      lib/Ethernet/*.o \
+	      lib/Firmata/*.o \
+	      lib/GSM/*.o \
+	      lib/LiquidCrystal/*.o \
+	      lib/SD/*.o \
+	      lib/Servo/*.o \
+	      lib/SoftwareSerial/*.o \
+	      lib/SPI/*.o \
+	      lib/Stepper/*.o \
+	      lib/Wire/*.o

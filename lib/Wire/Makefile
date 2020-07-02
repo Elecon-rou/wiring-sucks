@@ -17,6 +17,3 @@ Wire.a: $(OBJS)
 	$(AR) ../../$@ $^
 
 all: Wire.a
-
-clean:
-	rm -f *.o

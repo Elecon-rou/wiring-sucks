@@ -17,6 +17,3 @@ SD.a: $(OBJS)
 	$(AR) ../../$@ $^
 
 all: SD.a
-
-clean:
-	rm -f *.o

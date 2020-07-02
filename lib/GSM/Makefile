@@ -26,6 +26,3 @@ GSM.a: $(OBJS)
 	$(AR) ../../$@ $^
 
 all: GSM.a
-
-clean:
-	rm -f *.o

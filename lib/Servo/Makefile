@@ -17,6 +17,3 @@ Servo.a: $(OBJS)
 	$(AR) ../../$@ $^
 
 all: Servo.a
-
-clean:
-	rm -f *.o

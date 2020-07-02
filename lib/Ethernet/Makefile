@@ -19,6 +19,3 @@ Ethernet.a: $(OBJS)
 	$(AR) ../../$@ $^
 
 all: Ethernet.a
-
-clean:
-	rm -f *.o

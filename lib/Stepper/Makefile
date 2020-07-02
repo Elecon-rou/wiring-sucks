@@ -17,6 +17,3 @@ Stepper.a: $(OBJS)
 	$(AR) ../../$@ $^
 
 all: Stepper.a
-
-clean:
-	rm -f *.o

@@ -17,6 +17,3 @@ SoftwareSerial.a: $(OBJS)
 	$(AR) ../../$@ $^
 
 all: SoftwareSerial.a
-
-clean:
-	rm -f *.o

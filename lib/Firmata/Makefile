@@ -17,6 +17,3 @@ Firmata.a: $(OBJS)
 	$(AR) ../../$@ $^
 
 all: Firmata.a
-
-clean:
-	rm -f *.o

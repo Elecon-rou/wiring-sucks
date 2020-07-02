@@ -17,6 +17,3 @@ LiquidCrystal.a: $(OBJS)
 	$(AR) ../../$@ $^
 
 all: LiquidCrystal.a
-
-clean:
-	rm -f *.o

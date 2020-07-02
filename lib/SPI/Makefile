@@ -17,6 +17,3 @@ SPI.a: $(OBJS)
 	$(AR) ../../$@ $^
 
 all: SPI.a
-
-clean:
-	rm -f *.o

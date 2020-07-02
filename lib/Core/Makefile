@@ -21,6 +21,3 @@ Core.a: $(OBJS)
 	$(AR) ../../$@ $^
 
 all: Core.a
-
-clean:
-	rm -f *.o
